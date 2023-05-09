@@ -1,0 +1,16 @@
+// 选择要导入的图像文件
+var imageFile = File.openDialog("选择要导入的图像文件");
+
+// 如果选择了文件，则打开它
+if (imageFile) {
+    // 打开图像文件
+    var imageDoc = open(imageFile);
+
+    // 复制图像到当前文档
+    imageDoc.selection.selectAll();
+    imageDoc.selection.copy();
+    app.activeDocument.paste();
+
+    // 关闭图像文档
+    imageDoc.close(SaveOptions.DONOTSAVECHANGES);
+}
