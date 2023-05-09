@@ -1,3 +1,4 @@
+Q;Photoshop脚本，打开一张png图片，并且复制图层的操作怎么写
 // 选择要打开的 .png 文件
 var pngFile = File.openDialog("选择要打开的 .png 文件");
 
@@ -51,13 +52,15 @@ executeAction(idslct, desc3, DialogModes.NO);：执行“选择”操作，使�
 这段代码的最终效果是将当前活动图层添加到已选定的图层中。
 
 ////
+Q;什么是动作描述符？
+
 动作描述符（Action Descriptor）是 Photoshop 脚本中的一个对象，它用于描述和存储动作的参数。动作描述符可以包含多种类型的数据，包括字符串、整数、布尔值、列表、对象等。
 
 动作描述符通常用于与动作引用（Action Reference）一起使用，以执行特定的操作。例如，您可以创建一个动作描述符来描述“选择”操作的参数，然后使用 executeAction() 函数执行该操作。
 
 您可以使用 new ActionDescriptor() 来创建一个新的动作描述符，并使用其提供的方法（如 putString()、putInteger() 等）来添加参数。
 ///
-
+Q;使用stringID描述上面的代码，而不是charID
 您可以使用 stringIDToTypeID() 函数替换 charIDToTypeID() 函数来使用字符串 ID 描述上面的代码。下面是修改后的代码：
 
 pngDoc.activeLayer = pngDoc.layers[i];
@@ -73,3 +76,11 @@ var idselectionModifierType = stringIDToTypeID("selectionModifierType");
 var idaddToSelection = stringIDToTypeID("addToSelectionContinuous");
 desc3.putEnumerated(idselectionModifier, idselectionModifierType, idaddToSelection);
 executeAction(idslct, desc3, DialogModes.NO);
+////
+Q;为什么要获取“空”类型的 ID。 var idnull = charIDToTypeID("null");：
+
+在这段代码中，var idnull = charIDToTypeID("null"); 这一行获取了“空”类型的 ID，用于在动作描述符中添加一个“空”类型的引用。这是因为某些 Photoshop 操作需要一个“空”类型的引用作为参数。
+
+在这个例子中，我们使用 desc3.putReference(idnull, ref2); 将动作引用 ref2 添加到动作描述符 desc3 中。第一个参数 idnull 指定了引用的类型，即“空”类型。第二个参数 ref2 是要添加的动作引用。
+
+总之，获取“空”类型的 ID 是为了在动作描述符中添加一个“空”类型的引用，以满足某些操作的参数要求。😊
