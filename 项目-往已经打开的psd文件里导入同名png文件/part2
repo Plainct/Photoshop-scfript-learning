@@ -1,0 +1,22 @@
+// 选择目录
+var inputFolder = Folder.selectDialog("选择一个目录");
+
+// 获取目录中的所有 .psd 文件
+var fileList = inputFolder.getFiles("*.psd");
+
+// 迭代文件列表
+for (var i = 0; i < fileList.length; i++) {
+    // 检查文件是否存在
+    if (fileList[i] instanceof File) {
+        // 打开 .psd 文件
+        var doc = open(fileList[i]);
+
+        // 在此处处理 .psd 文件
+        // 例如：调整图像大小
+        // doc.resizeImage(800);
+
+        // 关闭 .psd 文件并保存更改
+        doc.close(SaveOptions.SAVECHANGES);
+    }
+}
+\\Q;Photoshop脚本怎么选择目录，对目录下的所有psd文件进行处理
