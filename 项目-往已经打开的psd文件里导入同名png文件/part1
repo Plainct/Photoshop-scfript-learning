@@ -14,3 +14,4 @@ if (imageFile) {
     // 关闭图像文档
     imageDoc.close(SaveOptions.DONOTSAVECHANGES);
 }
+//Q:Photoshop脚本。将一张.png图片，导入已有的文件里（.psd文件)
