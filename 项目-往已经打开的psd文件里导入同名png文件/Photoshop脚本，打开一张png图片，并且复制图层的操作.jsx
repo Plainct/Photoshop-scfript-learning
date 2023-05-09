@@ -65,7 +65,7 @@ var idslct = stringIDToTypeID("select");
 var desc3 = new ActionDescriptor();
 var idnull = charIDToTypeID("null");
 var ref2 = new ActionReference();
-var idLyr = charIDToTypeID("layer");
+var idLyr = stringIDToTypeID("layer");
 ref2.putName(idLyr, pngDoc.activeLayer.name);
 desc3.putReference(idnull, ref2);
 var idselectionModifier = stringIDToTypeID("selectionModifier");
