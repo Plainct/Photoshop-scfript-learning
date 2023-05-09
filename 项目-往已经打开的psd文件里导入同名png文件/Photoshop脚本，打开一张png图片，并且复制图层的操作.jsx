@@ -84,3 +84,13 @@ Q;为什么要获取“空”类型的 ID。 var idnull = charIDToTypeID("null")
 在这个例子中，我们使用 desc3.putReference(idnull, ref2); 将动作引用 ref2 添加到动作描述符 desc3 中。第一个参数 idnull 指定了引用的类型，即“空”类型。第二个参数 ref2 是要添加的动作引用。
 
 总之，获取“空”类型的 ID 是为了在动作描述符中添加一个“空”类型的引用，以满足某些操作的参数要求。😊
+
+///
+Q;var idCpTL = charIDToTypeID("CpTL"); 这个代码的作用是
+var idCpTL = charIDToTypeID("CpTL"); 这行代码获取了“复制图层”操作的 ID。charIDToTypeID() 函数接受一个字符串参数，该字符串表示要获取的操作的字符 ID。在这个例子中，我们传递了 "CpTL" 作为参数，它是“复制图层”操作的字符 ID。
+
+获取操作 ID 后，您可以使用 executeAction() 函数执行该操作。例如，在上面的脚本中，我们使用了以下代码来执行“复制图层”操作：
+
+var idCpTL = charIDToTypeID("CpTL");
+executeAction(idCpTL, undefined, DialogModes.NO);
+这段代码执行了“复制图层”操作，将当前选定的图层复制到剪贴板。
